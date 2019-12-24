@@ -1,318 +1,203 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!doctype html>
+<html lang="en">
 <head>
-<!-- 2019-09-14 周六 01:10 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
-<meta name="generator" content="Org mode" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
+<title></title>
+<!-- 2019-12-24 Tue 18:43 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Loutine">
 
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
     padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
 </style>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
+$(function() {
+    'use strict';
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+    $('.bs-docs-sidebar li').first().addClass('active');
 
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
 
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+    $('.bs-docs-sidebar').affix();
+});
 </script>
 </head>
 <body>
-<div id="content">
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org082b769">1. 逻辑学介绍</a>
-<ul>
-<li><a href="#orga655ae4">1.1. 事实错误与逻辑错误</a></li>
-<li><a href="#org9213a0a">1.2. 例题</a></li>
-<li><a href="#orgd0f4483">1.3. 三段论逻辑</a></li>
-<li><a href="#org675874a">1.4. 选择观察效应</a></li>
-</ul>
-</li>
-<li><a href="#org21c2c19">2. 引言:大师与智者</a>
-<ul>
-<li><a href="#org717a6c9">2.1. 半费之讼</a></li>
-<li><a href="#org9491ebf">2.2. 苏格拉底</a></li>
-<li><a href="#org2e19b8b">2.3. “逻辑学之父”:亚里士多德</a></li>
-<li><a href="#org9cb7778">2.4. 公孙龙</a></li>
-<li><a href="#org3ddcddb">2.5. 邓析</a></li>
-<li><a href="#org59a8679">2.6. 名学辩学大成:墨子</a></li>
-</ul>
-</li>
-<li><a href="#orgd460570">3. 思维形态与语言单位</a>
-<ul>
-<li><a href="#org9081992">3.1. 思维形式</a>
-<ul>
-<li><a href="#org8ddf004">3.1.1. 第一组 （命题）所有S是P</a></li>
-<li><a href="#orge965fcf">3.1.2. 第二组 （命题）如果p,那么q</a></li>
-<li><a href="#org3980d7d">3.1.3. 第三组 （推理，因果关系）所有M都是P;所有S都是M</a></li>
-</ul>
-</li>
-<li><a href="#org131d45f">3.2. 常用逻辑符号</a>
-<ul>
-<li><a href="#orgd984c84">3.2.1. 逻辑常项</a></li>
-<li><a href="#orgaf40272">3.2.2. 逻辑变项</a></li>
-<li><a href="#org05a9c23">3.2.3. 词项变项</a></li>
-<li><a href="#orgec8533e">3.2.4. 命题变项</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org8be4429">4. <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-09 周一&gt;</span></span>词项</a>
-<ul>
-<li><a href="#org7e65878">4.1. 许霆“ATM与国家金融机构”</a></li>
-<li><a href="#org02bddda">4.2. 什么是词项？</a></li>
-<li><a href="#org734aebe">4.3. 词项的内涵与外延</a>
-<ul>
-<li><a href="#org6d769f8">4.3.1. 什么是内涵</a></li>
-<li><a href="#org5010dd4">4.3.2. 什么是外延</a></li>
-<li><a href="#orge3b3f86">4.3.3. 词项不明确</a></li>
-<li><a href="#org0fac6ad">4.3.4. 公孙龙“白马非马”</a></li>
-</ul>
-</li>
-<li><a href="#org0bf395f">4.4. 常见的词项问题</a>
-<ul>
-<li><a href="#orgf814c43">4.4.1. 扩大概念或者泛化的问题</a></li>
-</ul>
-</li>
-<li><a href="#orgb1bf757">4.5. 明确词项的方法(词项的分类)</a>
-<ul>
-<li><a href="#orga9f740b">4.5.1. 普遍词项与单独词项，空词项</a></li>
-<li><a href="#org6b0ea9d">4.5.2. 实体词项与属性词项</a></li>
-<li><a href="#org3104b83">4.5.3. 正词项与负词项</a></li>
-<li><a href="#org7c46d96">4.5.4. 集合词项与非集合词项</a></li>
-</ul>
-</li>
-<li><a href="#org090b165">4.6. 联言推理</a></li>
-<li><a href="#org80ec0d5">4.7. 词项间的逻辑关系（欧拉图）</a>
-<ul>
-<li><a href="#org2370222">4.7.1. 全同关系</a></li>
-<li><a href="#orgad41de6">4.7.2. 交叉关系</a></li>
-<li><a href="#org8866bc0">4.7.3. 全异关系</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org082b769" class="outline-2">
-<h2 id="org082b769"><span class="section-number-2">1</span> 逻辑学介绍</h2>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title"></h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 逻辑学介绍</h2>
 <div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-orga655ae4" class="outline-3">
-<h3 id="orga655ae4"><span class="section-number-3">1.1</span> 事实错误与逻辑错误</h3>
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 事实错误与逻辑错误</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 上帝在第三天创造了太阳。
@@ -322,8 +207,8 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-org9213a0a" class="outline-3">
-<h3 id="org9213a0a"><span class="section-number-3">1.2</span> 例题</h3>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 例题</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 1，2，3，4，5五个人，戴着白帽子黑帽子，白帽子只说真话，黑帽子只说假话。
@@ -333,67 +218,67 @@ for the JavaScript code in this tag.
 4说:我看见一顶白帽子三顶黑帽子;
 5说:我看见四顶白帽子;
 </p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table class="table table-striped table-bordered table-hover table-condensed">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left">
 
-<col  class="org-left" />
+<col  class="left">
 
-<col  class="org-right" />
+<col  class="right">
 
-<col  class="org-right" />
+<col  class="right">
 
-<col  class="org-left" />
+<col  class="left">
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">1</th>
-<th scope="col" class="org-left">2</th>
-<th scope="col" class="org-right">3</th>
-<th scope="col" class="org-right">4</th>
-<th scope="col" class="org-left">5</th>
+<th scope="col" class="text-left">1</th>
+<th scope="col" class="text-left">2</th>
+<th scope="col" class="text-right">3</th>
+<th scope="col" class="text-right">4</th>
+<th scope="col" class="text-left">5</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">S</td>
-<td class="org-left">-S</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">-S</td>
+<td class="text-left">S</td>
+<td class="text-left">-S</td>
+<td class="text-right">&#xa0;</td>
+<td class="text-right">&#xa0;</td>
+<td class="text-left">-S</td>
 </tr>
 
 <tr>
-<td class="org-left">X</td>
-<td class="org-left">S</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="text-left">X</td>
+<td class="text-left">S</td>
+<td class="text-right">&#xa0;</td>
+<td class="text-right">&#xa0;</td>
+<td class="text-left">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="org-left">X</td>
-<td class="org-left">X</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">S</td>
-<td class="org-left">X</td>
+<td class="text-left">X</td>
+<td class="text-left">X</td>
+<td class="text-right">&#xa0;</td>
+<td class="text-right">S</td>
+<td class="text-left">X</td>
 </tr>
 
 <tr>
-<td class="org-left">F</td>
-<td class="org-left">F</td>
-<td class="org-right">T</td>
-<td class="org-right">T</td>
-<td class="org-left">F</td>
+<td class="text-left">F</td>
+<td class="text-left">F</td>
+<td class="text-right">T</td>
+<td class="text-right">T</td>
+<td class="text-left">F</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="outline-container-orgd0f4483" class="outline-3">
-<h3 id="orgd0f4483"><span class="section-number-3">1.3</span> 三段论逻辑</h3>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 三段论逻辑</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 反例解释
@@ -402,114 +287,122 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-org675874a" class="outline-3">
-<h3 id="org675874a"><span class="section-number-3">1.4</span> 选择观察效应</h3>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 选择观察效应</h3>
 </div>
 </div>
-<div id="outline-container-org21c2c19" class="outline-2">
-<h2 id="org21c2c19"><span class="section-number-2">2</span> 引言:大师与智者</h2>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 引言:大师与智者</h2>
 <div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 半费之讼</h3>
 </div>
-<div id="outline-container-org717a6c9" class="outline-3">
-<h3 id="org717a6c9"><span class="section-number-3">2.1</span> 半费之讼</h3>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 苏格拉底</h3>
 </div>
-<div id="outline-container-org9491ebf" class="outline-3">
-<h3 id="org9491ebf"><span class="section-number-3">2.2</span> 苏格拉底</h3>
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> “逻辑学之父”:亚里士多德</h3>
 </div>
-<div id="outline-container-org2e19b8b" class="outline-3">
-<h3 id="org2e19b8b"><span class="section-number-3">2.3</span> “逻辑学之父”:亚里士多德</h3>
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 公孙龙</h3>
 </div>
-<div id="outline-container-org9cb7778" class="outline-3">
-<h3 id="org9cb7778"><span class="section-number-3">2.4</span> 公孙龙</h3>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 邓析</h3>
 </div>
-<div id="outline-container-org3ddcddb" class="outline-3">
-<h3 id="org3ddcddb"><span class="section-number-3">2.5</span> 邓析</h3>
-</div>
-<div id="outline-container-org59a8679" class="outline-3">
-<h3 id="org59a8679"><span class="section-number-3">2.6</span> 名学辩学大成:墨子</h3>
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 名学辩学大成:墨子</h3>
 </div>
 </div>
-<div id="outline-container-orgd460570" class="outline-2">
-<h2 id="orgd460570"><span class="section-number-2">3</span> 思维形态与语言单位</h2>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 思维形态与语言单位</h2>
 <div class="outline-text-2" id="text-3">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table class="table table-striped table-bordered table-hover table-condensed">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left">
 
-<col  class="org-left" />
+<col  class="left">
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="text-left">&#xa0;</th>
+<th scope="col" class="text-left">&#xa0;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">词项</td>
-<td class="org-left">词语名词性词组</td>
+<td class="text-left">词项</td>
+<td class="text-left">词语名词性词组</td>
 </tr>
 
 <tr>
-<td class="org-left">命题</td>
-<td class="org-left">语句（因果性语句除外）</td>
+<td class="text-left">命题</td>
+<td class="text-left">语句（因果性语句除外）</td>
 </tr>
 
 <tr>
-<td class="org-left">推理</td>
-<td class="org-left">因果性语句，句组</td>
+<td class="text-left">推理</td>
+<td class="text-left">因果性语句，句组</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="outline-container-org9081992" class="outline-3">
-<h3 id="org9081992"><span class="section-number-3">3.1</span> 思维形式</h3>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 思维形式</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 同一类型得思维形态所共有 得具有得思维形式就称作该思维的逻辑形式，又称为形式结构，简称公式
 其中保持不变的是逻辑常量，变化的是逻辑变量。
 </p>
 </div>
-<div id="outline-container-org8ddf004" class="outline-4">
-<h4 id="org8ddf004"><span class="section-number-4">3.1.1</span> 第一组 （命题）所有S是P</h4>
+<div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1"><span class="section-number-4">3.1.1</span> 第一组 （命题）所有S是P</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
-<li>所有商品都是有价值的。</li>
-<li>所有物质都是可分割的。</li>
-<li>所有发展都是由事物内部矛盾引起的。</li>
+<li>所有商品都是有价值的。
+</li>
+<li>所有物质都是可分割的。
+</li>
+<li>所有发展都是由事物内部矛盾引起的。
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge965fcf" class="outline-4">
-<h4 id="orge965fcf"><span class="section-number-4">3.1.2</span> 第二组 （命题）如果p,那么q</h4>
+<div id="outline-container-sec-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2"><span class="section-number-4">3.1.2</span> 第二组 （命题）如果p,那么q</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <ul class="org-ul">
-<li>如果为人民利益而死，就比泰山还重。</li>
-<li>如果一个人得了肺病，那么这个人就会发烧。</li>
-<li>如果出现了阶级，那么就会出现国家。</li>
+<li>如果为人民利益而死，就比泰山还重。
+</li>
+<li>如果一个人得了肺病，那么这个人就会发烧。
+</li>
+<li>如果出现了阶级，那么就会出现国家。
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3980d7d" class="outline-4">
-<h4 id="org3980d7d"><span class="section-number-4">3.1.3</span> 第三组 （推理，因果关系）所有M都是P;所有S都是M</h4>
+<div id="outline-container-sec-3-1-3" class="outline-4">
+<h4 id="sec-3-1-3"><span class="section-number-4">3.1.3</span> 第三组 （推理，因果关系）所有M都是P;所有S都是M</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <ul class="org-ul">
-<li>所有学生都应该知书识礼。            所有M都是P</li>
-<li>所有大学生都是学生。                所有S都是M</li>
-<li>--------------------------&#x2013;&#x2014;</li>
-<li>所以，所以大学生都应该知书识礼。    所以，所有S都是P</li>
+<li>所有学生都应该知书识礼。            所有M都是P
+</li>
+<li>所有大学生都是学生。                所有S都是M
+</li>
+<li>-&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014; 
+</li>
+<li>所以，所以大学生都应该知书识礼。    所以，所有S都是P
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org131d45f" class="outline-3">
-<h3 id="org131d45f"><span class="section-number-3">3.2</span> 常用逻辑符号</h3>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 常用逻辑符号</h3>
 <div class="outline-text-3" id="text-3-2">
-</div>
-<div id="outline-container-orgd984c84" class="outline-4">
-<h4 id="orgd984c84"><span class="section-number-4">3.2.1</span> 逻辑常项</h4>
+</div><div id="outline-container-sec-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1"><span class="section-number-4">3.2.1</span> 逻辑常项</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
 定义：指的是一个逻辑形式中具有确切含义，其含义始终保持不变得部分
@@ -517,8 +410,8 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-orgaf40272" class="outline-4">
-<h4 id="orgaf40272"><span class="section-number-4">3.2.2</span> 逻辑变项</h4>
+<div id="outline-container-sec-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2"><span class="section-number-4">3.2.2</span> 逻辑变项</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p>
 定义：指一个逻辑形式中没有确切含义，可用不同词项或者命题进行替换的部分。
@@ -526,16 +419,16 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-org05a9c23" class="outline-4">
-<h4 id="org05a9c23"><span class="section-number-4">3.2.3</span> 词项变项</h4>
+<div id="outline-container-sec-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3"><span class="section-number-4">3.2.3</span> 词项变项</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <p>
 通常用 <span class="underline">大写字母</span> ：S,P,M表示。
 </p>
 </div>
 </div>
-<div id="outline-container-orgec8533e" class="outline-4">
-<h4 id="orgec8533e"><span class="section-number-4">3.2.4</span> 命题变项</h4>
+<div id="outline-container-sec-3-2-4" class="outline-4">
+<h4 id="sec-3-2-4"><span class="section-number-4">3.2.4</span> 命题变项</h4>
 <div class="outline-text-4" id="text-3-2-4">
 <p>
 一般使用 <span class="underline">小写字母</span> 表示：p，q，r，s。
@@ -545,21 +438,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org8be4429" class="outline-2">
-<h2 id="org8be4429"><span class="section-number-2">4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-09 周一&gt;</span></span>词项</h2>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-09 Mon&gt;</span></span>词项</h2>
 <div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-org7e65878" class="outline-3">
-<h3 id="org7e65878"><span class="section-number-3">4.1</span> 许霆“ATM与国家金融机构”</h3>
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 什么是词项？</h3>
 <div class="outline-text-3" id="text-4-1">
-<p>
-ATM是不是国家金融机构？
-</p>
-</div>
-</div>
-<div id="outline-container-org02bddda" class="outline-3">
-<h3 id="org02bddda"><span class="section-number-3">4.2</span> 什么是词项？</h3>
-<div class="outline-text-3" id="text-4-2">
 <p>
 <b>词项</b> ：反映对象本质的思维形态，是充当命题主项和谓项的概念。
 词项说明的是 <span class="underline">类</span>
@@ -567,37 +451,36 @@ ATM是不是国家金融机构？
 </p>
 </div>
 </div>
-<div id="outline-container-org734aebe" class="outline-3">
-<h3 id="org734aebe"><span class="section-number-3">4.3</span> 词项的内涵与外延</h3>
-<div class="outline-text-3" id="text-4-3">
-</div>
-<div id="outline-container-org6d769f8" class="outline-4">
-<h4 id="org6d769f8"><span class="section-number-4">4.3.1</span> 什么是内涵</h4>
-<div class="outline-text-4" id="text-4-3-1">
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 词项的内涵与外延</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><div id="outline-container-sec-4-2-1" class="outline-4">
+<h4 id="sec-4-2-1"><span class="section-number-4">4.2.1</span> 什么是内涵</h4>
+<div class="outline-text-4" id="text-4-2-1">
 <p>
 词项所反映的对象的本质属性
 </p>
 </div>
 </div>
-<div id="outline-container-org5010dd4" class="outline-4">
-<h4 id="org5010dd4"><span class="section-number-4">4.3.2</span> 什么是外延</h4>
-<div class="outline-text-4" id="text-4-3-2">
+<div id="outline-container-sec-4-2-2" class="outline-4">
+<h4 id="sec-4-2-2"><span class="section-number-4">4.2.2</span> 什么是外延</h4>
+<div class="outline-text-4" id="text-4-2-2">
 <p>
 词项的范围
 </p>
 </div>
 </div>
-<div id="outline-container-orge3b3f86" class="outline-4">
-<h4 id="orge3b3f86"><span class="section-number-4">4.3.3</span> 词项不明确</h4>
-<div class="outline-text-4" id="text-4-3-3">
+<div id="outline-container-sec-4-2-3" class="outline-4">
+<h4 id="sec-4-2-3"><span class="section-number-4">4.2.3</span> 词项不明确</h4>
+<div class="outline-text-4" id="text-4-2-3">
 <p>
 X与2X哪一个大
 </p>
 </div>
 </div>
-<div id="outline-container-org0fac6ad" class="outline-4">
-<h4 id="org0fac6ad"><span class="section-number-4">4.3.4</span> 公孙龙“白马非马”</h4>
-<div class="outline-text-4" id="text-4-3-4">
+<div id="outline-container-sec-4-2-4" class="outline-4">
+<h4 id="sec-4-2-4"><span class="section-number-4">4.2.4</span> 公孙龙“白马非马”</h4>
+<div class="outline-text-4" id="text-4-2-4">
 <p>
 从内涵的角度去区别：白与马
 外延的角度：白马与马的外延不同
@@ -605,156 +488,682 @@ X与2X哪一个大
 </div>
 </div>
 </div>
-<div id="outline-container-org0bf395f" class="outline-3">
-<h3 id="org0bf395f"><span class="section-number-3">4.4</span> 常见的词项问题</h3>
-<div class="outline-text-3" id="text-4-4">
-</div>
-<div id="outline-container-orgf814c43" class="outline-4">
-<h4 id="orgf814c43"><span class="section-number-4">4.4.1</span> 扩大概念或者泛化的问题</h4>
-<div class="outline-text-4" id="text-4-4-1">
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 常见的词项问题</h3>
+<div class="outline-text-3" id="text-4-3">
+</div><div id="outline-container-sec-4-3-1" class="outline-4">
+<h4 id="sec-4-3-1"><span class="section-number-4">4.3.1</span> 扩大概念或者泛化的问题</h4>
+<div class="outline-text-4" id="text-4-3-1">
 <p>
 高晓松
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb1bf757" class="outline-3">
-<h3 id="orgb1bf757"><span class="section-number-3">4.5</span> 明确词项的方法(词项的分类)</h3>
-<div class="outline-text-3" id="text-4-5">
-</div>
-<div id="outline-container-orga9f740b" class="outline-4">
-<h4 id="orga9f740b"><span class="section-number-4">4.5.1</span> 普遍词项与单独词项，空词项</h4>
-<div class="outline-text-4" id="text-4-5-1">
-</div>
-<ol class="org-ol">
-<li><a id="orgff60546"></a>普遍词项（外延为多）<br />
-<div class="outline-text-5" id="text-4-5-1-1">
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 明确词项的方法(词项的分类)</h3>
+<div class="outline-text-3" id="text-4-4">
+</div><div id="outline-container-sec-4-4-1" class="outline-4">
+<h4 id="sec-4-4-1"><span class="section-number-4">4.4.1</span> 普遍词项与单独词项，空词项</h4>
+<div class="outline-text-4" id="text-4-4-1">
+</div><ol class="org-ol"><li><a id="sec-4-4-1-1" name="sec-4-4-1-1"></a>普遍词项（外延为多）<br ><div class="outline-text-5" id="text-4-4-1-1">
 <p>
 国家 犯罪 学生
 </p>
 </div>
 </li>
-<li><a id="org5b7f682"></a>单独词项（外延为一）<br />
-<div class="outline-text-5" id="text-4-5-1-2">
+<li><a id="sec-4-4-1-2" name="sec-4-4-1-2"></a>单独词项（外延为一）<br ><div class="outline-text-5" id="text-4-4-1-2">
 <p>
 武汉 地球 中国
 </p>
 </div>
 </li>
-<li><a id="org8291607"></a>空词项（词项反映的对象在客观上不存在，外延为空类）<br />
-<div class="outline-text-5" id="text-4-5-1-3">
+<li><a id="sec-4-4-1-3" name="sec-4-4-1-3"></a>空词项（词项反映的对象在客观上不存在，外延为空类）<br ><div class="outline-text-5" id="text-4-4-1-3">
 <p>
 美人鱼 孙悟空
 </p>
 </div>
-</li>
-</ol>
+</li></ol>
 </div>
-<div id="outline-container-org6b0ea9d" class="outline-4">
-<h4 id="org6b0ea9d"><span class="section-number-4">4.5.2</span> 实体词项与属性词项</h4>
-<div class="outline-text-4" id="text-4-5-2">
-</div>
-<ol class="org-ol">
-<li><a id="orge5dda95"></a>实体词项：词项所反映的对象是实体<br />
-<div class="outline-text-5" id="text-4-5-2-1">
+<div id="outline-container-sec-4-4-2" class="outline-4">
+<h4 id="sec-4-4-2"><span class="section-number-4">4.4.2</span> 实体词项与属性词项</h4>
+<div class="outline-text-4" id="text-4-4-2">
+</div><ol class="org-ol"><li><a id="sec-4-4-2-1" name="sec-4-4-2-1"></a>实体词项：词项所反映的对象是实体<br ><div class="outline-text-5" id="text-4-4-2-1">
 <p>
 男人 教室
 </p>
 </div>
 </li>
-<li><a id="org0f3d838"></a>属性词项：词项反映的对象是属性<br />
-<div class="outline-text-5" id="text-4-5-2-2">
+<li><a id="sec-4-4-2-2" name="sec-4-4-2-2"></a>属性词项：词项反映的对象是属性<br ><div class="outline-text-5" id="text-4-4-2-2">
 <p>
 大于 等于 善良 勇敢
 </p>
 </div>
-</li>
-</ol>
+</li></ol>
 </div>
-<div id="outline-container-org3104b83" class="outline-4">
-<h4 id="org3104b83"><span class="section-number-4">4.5.3</span> 正词项与负词项</h4>
-<div class="outline-text-4" id="text-4-5-3">
+<div id="outline-container-sec-4-4-3" class="outline-4">
+<h4 id="sec-4-4-3"><span class="section-number-4">4.4.3</span> 正词项与负词项</h4>
+<div class="outline-text-4" id="text-4-4-3">
 <p>
 名词是正词项 
 只有有“非”词谓的词项才为负词项
 </p>
 </div>
 </div>
-<div id="outline-container-org7c46d96" class="outline-4">
-<h4 id="org7c46d96"><span class="section-number-4">4.5.4</span> 集合词项与非集合词项</h4>
-<div class="outline-text-4" id="text-4-5-4">
+<div id="outline-container-sec-4-4-4" class="outline-4">
+<h4 id="sec-4-4-4"><span class="section-number-4">4.4.4</span> 集合词项与非集合词项</h4>
+<div class="outline-text-4" id="text-4-4-4">
 <p>
 <b>集合词项必须拥有非集和词项不具有的性质</b> 
 青年人是祖国的希望
 青年人应当尊重老年人
 </p>
 </div>
-<ol class="org-ol">
-<li><a id="orgd0f2809"></a>小技巧<br />
-<div class="outline-text-5" id="text-4-5-4-1">
+<ol class="org-ol"><li><a id="sec-4-4-4-1" name="sec-4-4-4-1"></a>小技巧<br ><div class="outline-text-5" id="text-4-4-4-1">
 <p>
 在前面加一个（每一个）或者（之一）
 </p>
 </div>
-</li>
-</ol>
+</li></ol>
 </div>
 </div>
-<div id="outline-container-org090b165" class="outline-3">
-<h3 id="org090b165"><span class="section-number-3">4.6</span> 联言推理</h3>
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> 联言推理</h3>
 </div>
-<div id="outline-container-org80ec0d5" class="outline-3">
-<h3 id="org80ec0d5"><span class="section-number-3">4.7</span> 词项间的逻辑关系（欧拉图）</h3>
-<div class="outline-text-3" id="text-4-7">
-</div>
-<div id="outline-container-org2370222" class="outline-4">
-<h4 id="org2370222"><span class="section-number-4">4.7.1</span> 全同关系</h4>
-<div class="outline-text-4" id="text-4-7-1">
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> 词项间的逻辑关系（欧拉图）</h3>
+<div class="outline-text-3" id="text-4-6">
+</div><div id="outline-container-sec-4-6-1" class="outline-4">
+<h4 id="sec-4-6-1"><span class="section-number-4">4.6.1</span> 全同关系</h4>
+<div class="outline-text-4" id="text-4-6-1">
 <p>
 S与P具有全同关系，指S和P的外延完全相同（仅仅为外延，不包括内涵）
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #859900;">from</span> matplotlib <span style="color: #859900;">import</span> pyplot <span style="color: #859900;">as</span> plt
-<span style="color: #859900;">from</span> matplotlib_venn <span style="color: #859900;">import</span> venn2
-venn2(subsets=[0,0,1],set_labels=(<span style="color: #2aa198;">'S'</span>,<span style="color: #2aa198;">'P'</span>))
-plt.savefig(<span style="color: #2aa198;">'image/quantong.png'</span>)
-<span style="color: #859900;">return</span> <span style="color: #2aa198;">'image/quantong.png'</span>
+
+<pre class="src src-python">from matplotlib import pyplot as plt
+from matplotlib_venn import venn2
+venn2(subsets=[0,0,1],set_labels=('S','P'))
+plt.savefig('image/quantong.png')
+return 'image/quantong.png'
 </pre>
 </div>
 
 
-<div class="figure">
-<p><img src="image/quantong.png" alt="quantong.png" />
+<figure>
+<p><img src="image/quantong.png" class="img-responsive" alt="quantong.png">
 </p>
+</figure>
 </div>
-<div class="org-src-container">
-<pre class="src src-python"><span style="color: #859900;">print</span>(<span style="color: #2aa198;">"hello org"</span>)
-</pre>
-</div>
-</div>
-
-<ol class="org-ol">
-<li><a id="orgf8ab93e"></a>特殊案例<br />
-<div class="outline-text-5" id="text-4-7-1-1">
+<ol class="org-ol"><li><a id="sec-4-6-1-1" name="sec-4-6-1-1"></a>特殊案例<br ><div class="outline-text-5" id="text-4-6-1-1">
 <p>
 等边三角形 等角三角形
 </p>
 </div>
+</li></ol>
+</div>
+<div id="outline-container-sec-4-6-2" class="outline-4">
+<h4 id="sec-4-6-2"><span class="section-number-4">4.6.2</span> 真包含于关系</h4>
+<div class="outline-text-4" id="text-4-6-2">
+<div class="org-src-container">
+
+<pre class="src src-python">from matplotlib import pyplot as plt
+from matplotlib_venn import venn2
+venn2(subsets=[2,0,1],set_labels=('P','S'))
+plt.savefig('image/zhenbaohanyu.png')
+return 'image/zhenbaohanyu.png'
+</pre>
+</div>
+
+
+<figure>
+<p><img src="image/zhenbaohanyu.png" class="img-responsive" alt="zhenbaohanyu.png">
+</p>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-sec-4-6-3" class="outline-4">
+<h4 id="sec-4-6-3"><span class="section-number-4">4.6.3</span> 真包含关系</h4>
+<div class="outline-text-4" id="text-4-6-3">
+<div class="org-src-container">
+
+<pre class="src src-python">from matplotlib import pyplot as plt
+from matplotlib_venn import venn2
+venn2(subsets=[2,0,1],set_labels=('S','P'))
+plt.savefig('image/zhenbaohan.png')
+return 'image/zhenbaohan.png'
+</pre>
+</div>
+
+
+<figure>
+<p><img src="image/zhenbaohan.png" class="img-responsive" alt="zhenbaohan.png">
+</p>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-sec-4-6-4" class="outline-4">
+<h4 id="sec-4-6-4"><span class="section-number-4">4.6.4</span> 交叉关系</h4>
+<div class="outline-text-4" id="text-4-6-4">
+<div class="org-src-container">
+
+<pre class="src src-python">from matplotlib import pyplot as plt
+from matplotlib_venn import venn2
+venn2(subsets=[1,1,1], set_labels=('S','P'))
+plt.savefig('image/jiaocha.png')
+return 'image/jiaocha.png'
+</pre>
+</div>
+
+
+<figure>
+<p><img src="image/jiaocha.png" class="img-responsive" alt="jiaocha.png">
+</p>
+</figure>
+</div>
+</div>
+<div id="outline-container-sec-4-6-5" class="outline-4">
+<h4 id="sec-4-6-5"><span class="section-number-4">4.6.5</span> 全异关系</h4>
+<div class="outline-text-4" id="text-4-6-5">
+<div class="org-src-container">
+
+<pre class="src src-python">from matplotlib import pyplot as plt
+from matplotlib_venn import venn2
+venn2(subsets=[set([1,2]),set([3,4])], set_labels=('S','P'))
+plt.savefig('image/quanyi.png')
+return 'image/quanyi.png'
+</pre>
+</div>
+
+
+<figure>
+<p><img src="image/quanyi.png" class="img-responsive" alt="quanyi.png">
+</p>
+</figure>
+</div>
+</div>
+<div id="outline-container-sec-4-6-6" class="outline-4">
+<h4 id="sec-4-6-6"><span class="section-number-4">4.6.6</span> 矛盾关系</h4>
+<div class="outline-text-4" id="text-4-6-6">
+
+<figure>
+<p><img src="image/maodun.png" class="img-responsive" alt="maodun.png">
+</p>
+</figure>
+</div>
+</div>
+<div id="outline-container-sec-4-6-7" class="outline-4">
+<h4 id="sec-4-6-7"><span class="section-number-4">4.6.7</span> 反对关系</h4>
+<div class="outline-text-4" id="text-4-6-7">
+<div class="org-src-container">
+
+<pre class="src src-python">from matplotlib import pyplot as plt
+from matplotlib_venn import venn3
+venn3(subsets=(set([1,2,5,6,7]),set([1]),set([2])),set_labels=('R','S','P'))
+plt.savefig('image/maodun.png')
+return 'image/maodun.png'
+
+</pre>
+</div>
+
+
+<figure>
+<p><img src="image/maodun.png" class="img-responsive" alt="maodun.png">
+</p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-16 Mon&gt;</span></span>简单命题</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 周延性理论</h3>
+<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-sec-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1"><span class="section-number-4">5.1.1</span> 主项</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+全称命题的主项都是周延的。
+特称命题的主项都是不周延的。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-1-2" class="outline-4">
+<h4 id="sec-5-1-2"><span class="section-number-4">5.1.2</span> 谓项</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+只有否定命题的谓项是周延的。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> 简单命题</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+定义：自身不包括其他命题的命题。逻辑变项一般是概念变项
+</p>
+</div>
+<div id="outline-container-sec-5-2-1" class="outline-4">
+<h4 id="sec-5-2-1"><span class="section-number-4">5.2.1</span> 关系命题</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+对象之间具有或者不具有某种关系的命题
+</p>
+</div>
+<ol class="org-ol"><li><a id="sec-5-2-1-1" name="sec-5-2-1-1"></a>对称与非对称关系<br ><div class="outline-text-5" id="text-5-2-1-1">
+<ul class="org-ul">
+<li>非对称 谈恋爱
+</li>
+<li>对称   占星师(我
+</li>
+</ul>
+</div>
+</li>
+<li><a id="sec-5-2-1-2" name="sec-5-2-1-2"></a>关系的性质<br ><ol class="org-ol"><li><a id="sec-5-2-1-2-1" name="sec-5-2-1-2-1"></a>自反性<br ><ol class="org-ol"><li><a id="sec-5-2-1-2-1-1" name="sec-5-2-1-2-1-1"></a>自反关系<br ></li>
+<li><a id="sec-5-2-1-2-1-2" name="sec-5-2-1-2-1-2"></a>反自反关系<br ></li>
+<li><a id="sec-5-2-1-2-1-3" name="sec-5-2-1-2-1-3"></a>非自反关系<br ></li></ol>
+</li>
+<li><a id="sec-5-2-1-2-2" name="sec-5-2-1-2-2"></a>对称性<br ><ol class="org-ol"><li><a id="sec-5-2-1-2-2-1" name="sec-5-2-1-2-2-1"></a>对称关系<br ></li>
+<li><a id="sec-5-2-1-2-2-2" name="sec-5-2-1-2-2-2"></a>反对称关系<br ></li>
+<li><a id="sec-5-2-1-2-2-3" name="sec-5-2-1-2-2-3"></a>非对称关系<br ></li></ol>
+</li>
+<li><a id="sec-5-2-1-2-3" name="sec-5-2-1-2-3"></a>传递性<br ></li></ol>
+</li></ol>
+</div>
+<div id="outline-container-sec-5-2-2" class="outline-4">
+<h4 id="sec-5-2-2"><span class="section-number-4">5.2.2</span> 性质命题（直言命题）</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+断定对象具有或者不具有某种性质的命题。
+</p>
+<ul class="org-ul">
+<li>哥白尼创立日心说
+</li>
+</ul>
+</div>
+<ol class="org-ol"><li><a id="sec-5-2-2-1" name="sec-5-2-2-1"></a>肯定命题与否定命题<br ><div class="outline-text-5" id="text-5-2-2-1">
+<p>
+逻辑形式
+</p>
+</div>
+</li>
+<li><a id="sec-5-2-2-2" name="sec-5-2-2-2"></a>特称命题<br ></li>
+<li><a id="sec-5-2-2-3" name="sec-5-2-2-3"></a>单称命题<br ><div class="outline-text-5" id="text-5-2-2-3">
+<p>
+所有S是P
+</p>
+</div>
+</li>
+<li><a id="sec-5-2-2-4" name="sec-5-2-2-4"></a>结构<br ><div class="outline-text-5" id="text-5-2-2-4">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<tbody>
+<tr>
+<td class="text-left">量项</td>
+<td class="text-left">主项</td>
+<td class="text-left">联项</td>
+<td class="text-left">谓项</td>
+</tr>
+
+<tr>
+<td class="text-left">所有</td>
+<td class="text-left">大学生</td>
+<td class="text-left">都是</td>
+<td class="text-left">学生</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><a id="sec-5-2-2-5" name="sec-5-2-2-5"></a>结构形式<br ><div class="outline-text-5" id="text-5-2-2-5">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">类型</th>
+<th scope="col" class="text-left">形式</th>
+<th scope="col" class="text-left">逻辑形式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">全程肯定</td>
+<td class="text-left">所有S是P</td>
+<td class="text-left">SAP</td>
+</tr>
+
+<tr>
+<td class="text-left">全称否定</td>
+<td class="text-left">所有S不是P</td>
+<td class="text-left">SEP</td>
+</tr>
+
+<tr>
+<td class="text-left">特称肯定</td>
+<td class="text-left">有S是P</td>
+<td class="text-left">SIP</td>
+</tr>
+
+<tr>
+<td class="text-left">特称否定</td>
+<td class="text-left">有S不是P</td>
+<td class="text-left">SOP</td>
+</tr>
+
+<tr>
+<td class="text-left">单称肯定</td>
+<td class="text-left">这个S是P</td>
+<td class="text-left">SA'P</td>
+</tr>
+
+<tr>
+<td class="text-left">单称否定</td>
+<td class="text-left">这个S不是P</td>
+<td class="text-left">SE'P</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li></ol>
+</div>
+<div id="outline-container-sec-5-2-3" class="outline-4">
+<h4 id="sec-5-2-3"><span class="section-number-4">5.2.3</span> 联言命题</h4>
+</div>
+<div id="outline-container-sec-5-2-4" class="outline-4">
+<h4 id="sec-5-2-4"><span class="section-number-4">5.2.4</span> 模态命题</h4>
+<div class="outline-text-4" id="text-5-2-4">
+<p>
+包含“必然”，“可能”，“一定”，“知道”，“应当”，“允许”等模态词的命题。
+<span class="underline">一种可能，哪怕是非常大的可能性，都不是必然性。</span>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5-2-5" class="outline-4">
+<h4 id="sec-5-2-5"><span class="section-number-4">5.2.5</span> 非模态命题</h4>
+</div>
+</div>
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> 同素材命题之间的真假命题制约关系</h3>
+<div class="outline-text-3" id="text-5-3">
+<ul class="org-ul">
+<li>矛盾关系
+既不能同真，也不能同假。
+</li>
+<li>反对关系
+不能同真，但是可以同假。
+</li>
+<li>下反对关系
+不能同假，但是可以同真。
+</li>
+<li>差等关系
+既不同真也不同假。
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-5-3-1" class="outline-4">
+<h4 id="sec-5-3-1"><span class="section-number-4">5.3.1</span> 利用矛盾关系解决逻辑题</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<p>
+矛盾关系中必定有一句是正确的
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-30 Mon&gt;</span></span>推理</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 推理有效性</h3>
+<div class="outline-text-3" id="text-6-1">
+<ol class="org-ol">
+<li>无效的形式可以推出任何结论
+</li>
+<li>假的前提可以推出任何结论
 </li>
 </ol>
 </div>
-<div id="outline-container-orgad41de6" class="outline-4">
-<h4 id="orgad41de6"><span class="section-number-4">4.7.2</span> 交叉关系</h4>
 </div>
-<div id="outline-container-org8866bc0" class="outline-4">
-<h4 id="org8866bc0"><span class="section-number-4">4.7.3</span> 全异关系</h4>
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> 性质直接判断推理</h3>
+<div class="outline-text-3" id="text-6-2">
+</div><div id="outline-container-sec-6-2-1" class="outline-4">
+<h4 id="sec-6-2-1"><span class="section-number-4">6.2.1</span> 形式有效的推理</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<ol class="org-ol">
+<li>对当关系推理(同主谓):使用命题制约关系来判断
+</li>
+<li>判断变形推理(同主谓):使用反对关系+反谓项。
+</li>
+<li>换位法推理(同主谓):使用相同的主谓(或者下位转化)，不变量项，但是原来不周延的项不能周延。
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> 三段论</h3>
+<div class="outline-text-3" id="text-6-3">
+</div><div id="outline-container-sec-6-3-1" class="outline-4">
+<h4 id="sec-6-3-1"><span class="section-number-4">6.3.1</span> 形式有效性</h4>
+<div class="outline-text-4" id="text-6-3-1">
+<ol class="org-ol">
+<li>必须有三项
+</li>
+<li>中项至少周延一次
+</li>
+<li>前提中不周延的，结论不可周延
+</li>
+<li>两个否定前提推不出
+</li>
+<li>前提有否定则结论为否定
+</li>
+<li>两个特称命题推不出
+</li>
+<li>有特称前提，结论也是特称
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-6-3-2" class="outline-4">
+<h4 id="sec-6-3-2"><span class="section-number-4">6.3.2</span> 三段论的格</h4>
+<div class="outline-text-4" id="text-6-3-2">
+</div><ol class="org-ol"><li><a id="sec-6-3-2-1" name="sec-6-3-2-1"></a>第一格<br ><div class="outline-text-5" id="text-6-3-2-1">
+<p>
+M-P
+S-M
+&#x2014;
+S-P
+</p>
+</div>
+</li>
+<li><a id="sec-6-3-2-2" name="sec-6-3-2-2"></a>第二格<br ><div class="outline-text-5" id="text-6-3-2-2">
+<p>
+P-M
+S-M
+&#x2014;
+S-P
+</p>
+</div>
+</li>
+<li><a id="sec-6-3-2-3" name="sec-6-3-2-3"></a>第三格<br ><div class="outline-text-5" id="text-6-3-2-3">
+<p>
+M-P
+M-S
+&#x2014;
+S-P
+</p>
+</div>
+</li>
+<li><a id="sec-6-3-2-4" name="sec-6-3-2-4"></a>第四格<br ><div class="outline-text-5" id="text-6-3-2-4">
+<p>
+P-M
+M-S
+&#x2014;
+S-P
+</p>
+</div>
+</li></ol>
+</div>
+</div>
+<div id="outline-container-sec-6-4" class="outline-3">
+<h3 id="sec-6-4"><span class="section-number-3">6.4</span> 关系推理</h3>
+<div class="outline-text-3" id="text-6-4">
+<ol class="org-ol">
+<li>自返关系推理
+</li>
+<li>反自返关系推理
+</li>
+<li>对称关系推理
+</li>
+<li>反对对称关系推理
+</li>
+<li>传递关系推理
+</li>
+<li>反传递关系推理
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> 复合命题及其推理</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+复合命题的逻辑等值推理
+&not;(A &and; B) &rarr;
+</p>
+</div>
+<div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> 符号&rarr; &larr; &harr; 相关关键词</h3>
+<div class="outline-text-3" id="text-7-1">
+</div><div id="outline-container-sec-7-1-1" class="outline-4">
+<h4 id="sec-7-1-1"><span class="section-number-4">7.1.1</span> 充分条件假言命题&rarr;</h4>
+</div>
+</div>
+<div id="outline-container-sec-7-2" class="outline-3">
+<h3 id="sec-7-2"><span class="section-number-3">7.2</span> 选言命题</h3>
+<div class="outline-text-3" id="text-7-2">
+</div><div id="outline-container-sec-7-2-1" class="outline-4">
+<h4 id="sec-7-2-1"><span class="section-number-4">7.2.1</span> 相容选言命题与不相容宣言命题</h4>
+<div class="outline-text-4" id="text-7-2-1">
+<p>
+相容选言命题可以有多个选言支为真
+不相容则只能为单一真
+</p>
+</div>
+</div>
+<div id="outline-container-sec-7-2-2" class="outline-4">
+<h4 id="sec-7-2-2"><span class="section-number-4">7.2.2</span> 相容选言命题推理</h4>
+<div class="outline-text-4" id="text-7-2-2">
+<p>
+(p &or; q) &and; &not; p &rarr; q (否定肯定式)
+<b>相容选言命题只能使用否定肯定式推理，而且要求选言肢穷尽</b>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-7-2-3" class="outline-4">
+<h4 id="sec-7-2-3"><span class="section-number-4">7.2.3</span> 不相容选言命题的推理</h4>
+<div class="outline-text-4" id="text-7-2-3">
+<p>
+(p &or; q) &and; &not; p &rarr; q (否定肯定式)
+(p &or; q) &and; p &rarr; &not; q (肯定否定式)
+</p>
 </div>
 </div>
 </div>
 </div>
-<div id="postamble" class="status">
-<p class="date">Created: 2019-09-14 周六 01:10</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. 逻辑学介绍</a>
+<ul class="nav">
+<li><a href="#sec-1-1">1.1. 事实错误与逻辑错误</a></li>
+<li><a href="#sec-1-2">1.2. 例题</a></li>
+<li><a href="#sec-1-3">1.3. 三段论逻辑</a></li>
+<li><a href="#sec-1-4">1.4. 选择观察效应</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 引言:大师与智者</a>
+<ul class="nav">
+<li><a href="#sec-2-1">2.1. 半费之讼</a></li>
+<li><a href="#sec-2-2">2.2. 苏格拉底</a></li>
+<li><a href="#sec-2-3">2.3. “逻辑学之父”:亚里士多德</a></li>
+<li><a href="#sec-2-4">2.4. 公孙龙</a></li>
+<li><a href="#sec-2-5">2.5. 邓析</a></li>
+<li><a href="#sec-2-6">2.6. 名学辩学大成:墨子</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. 思维形态与语言单位</a>
+<ul class="nav">
+<li><a href="#sec-3-1">3.1. 思维形式</a></li>
+<li><a href="#sec-3-2">3.2. 常用逻辑符号</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-09 Mon&gt;</span></span>词项</a>
+<ul class="nav">
+<li><a href="#sec-4-1">4.1. 什么是词项？</a></li>
+<li><a href="#sec-4-2">4.2. 词项的内涵与外延</a></li>
+<li><a href="#sec-4-3">4.3. 常见的词项问题</a></li>
+<li><a href="#sec-4-4">4.4. 明确词项的方法(词项的分类)</a></li>
+<li><a href="#sec-4-5">4.5. 联言推理</a></li>
+<li><a href="#sec-4-6">4.6. 词项间的逻辑关系（欧拉图）</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-16 Mon&gt;</span></span>简单命题</a>
+<ul class="nav">
+<li><a href="#sec-5-1">5.1. 周延性理论</a></li>
+<li><a href="#sec-5-2">5.2. 简单命题</a></li>
+<li><a href="#sec-5-3">5.3. 同素材命题之间的真假命题制约关系</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6. <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-09-30 Mon&gt;</span></span>推理</a>
+<ul class="nav">
+<li><a href="#sec-6-1">6.1. 推理有效性</a></li>
+<li><a href="#sec-6-2">6.2. 性质直接判断推理</a></li>
+<li><a href="#sec-6-3">6.3. 三段论</a></li>
+<li><a href="#sec-6-4">6.4. 关系推理</a></li>
+</ul>
+</li>
+<li><a href="#sec-7">7. 复合命题及其推理</a>
+<ul class="nav">
+<li><a href="#sec-7-1">7.1. 符号&rarr; &larr; &harr; 相关关键词</a></li>
+<li><a href="#sec-7-2">7.2. 选言命题</a></li>
+</ul>
+</li>
+</ul>
 </div>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Loutine</p>
+<p class="date">Created: 2019-12-24 Tue 18:43</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.3)</p>
+</div>
+</footer>
 </body>
 </html>
